@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Welcome from './components/welcome/welcome';
+import QuestionModule from './components/question/question';
 import './App.scss';
 
 const App: React.FC = () => {
@@ -20,8 +21,7 @@ const App: React.FC = () => {
   if (isHome) {
     return <Welcome handleChange={handleChange} handleSubmit={handleSubmit} />
   } else {
-    console.log(value);
-    return <div>this is the trivia app!</div>
+    return <QuestionModule value={value}/>
   }
 }
 
