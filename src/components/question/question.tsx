@@ -1,5 +1,6 @@
 import React from 'react';
 import TriviaQuestions from './../../assets/trivia-questions';
+import { getQuestion } from './../../assets/helper-functions';
 
 interface QuestionModule {
   value: number;
@@ -7,23 +8,10 @@ interface QuestionModule {
 
 const QuestionModule: React.FC<QuestionModule> = ({ value }) => {
 
-  const getQuestions = (): Object[] => {
-
-    const result = [];
-    const seen = [];
-
-    for (let i = 0; i < value; ++i) {
-      const randomIndex = Math.floor(Math.random() * TriviaQuestions.length);
-      seen.push(randomIndex);
-      if (seen.indexOf(randomIndex) === -1) i -= 1;
-      else result.push(TriviaQuestions[randomIndex]);
-    }
-    return result;
-  }
+  console.log(getQuestion(TriviaQuestions, value));
 
   return (
     <div className="question-module">
-
     </div>
   )
 }
