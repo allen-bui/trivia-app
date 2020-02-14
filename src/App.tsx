@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Welcome from './components/welcome/welcome';
-import QuestionModule from './components/question/question';
+import Welcome from './components/welcome';
+import Questions from './components/question';
 import './App.scss';
 
 const App: React.FC = () => {
@@ -21,7 +21,7 @@ const App: React.FC = () => {
   if (isHome) {
     return <Welcome handleChange={handleChange} handleSubmit={handleSubmit} />
   } else {
-    return <QuestionModule value={value}/>
+    return <Questions value={value}/>
   }
 }
 
