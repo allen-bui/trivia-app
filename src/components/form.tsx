@@ -6,6 +6,7 @@ interface Form {
 }
 
 const Form: React.FC<Form> = ({ singleQuestion, handleFormSubmit }) => {
+
   const {
     question,
     correct_answer: correctAnswer,
