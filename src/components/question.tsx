@@ -13,6 +13,8 @@ const Form: React.FC<Form> = ({ singleQuestion, handleFormSubmit }) => {
     incorrect_answers: incorrectAnswers,
   } = singleQuestion;
 
+  // need to create a randomize function to spit out correct answer
+
   return (
     <form onSubmit={handleFormSubmit}>
       <h1>{question}</h1>

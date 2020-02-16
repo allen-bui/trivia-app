@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Welcome from './components/welcome';
-import Form from './components/form';
+import Form from './components/question';
 import TriviaQuestions from './assets/trivia-questions';
 import { getQuestion } from './assets/helper-functions';
 import './App.scss';
