@@ -10,7 +10,6 @@ const App: React.FC = () => {
   // Welcome Page
   const [isHome, setIsHome] = useState<boolean>(true);
   const [value, setValue] = useState<number>(5);
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const numberValue: number = Number(event.target.value);
     setValue(numberValue);
@@ -24,7 +23,6 @@ const App: React.FC = () => {
   const parsedTriviaQuestions = getQuestion(TriviaQuestions, value);
   const [question, setQuestion] = useState<Object>(parsedTriviaQuestions[0]);
   const [index, setIndex] = useState<number>(1);
-
   const handleFormSubmit = (event: React.ChangeEvent<HTMLFormElement>): void => {
     event.preventDefault();
     if (index < parsedTriviaQuestions.length) {
@@ -35,12 +33,16 @@ const App: React.FC = () => {
     }
   };
 
+  // Render App
   if (isHome) {
     return <Welcome handleChange={handleChange} handleWelcomeSubmit={handleWelcomeSubmit} />;
   } else {
     return (
       <div className="question-module">
-        <Form singleQuestion={question} handleFormSubmit={handleFormSubmit} />
+        <Form
+          singleQuestion={question}
+          handleFormSubmit={handleFormSubmit}
+        />
 
         {/*
         <Timer />
