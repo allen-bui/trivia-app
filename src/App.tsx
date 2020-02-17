@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Welcome from './components/welcome';
-import Form from './components/question';
+import Question from './components/question';
 import TriviaQuestions from './assets/trivia-questions';
 import { getQuestion } from './assets/helper-functions';
 import './App.scss';
@@ -21,13 +21,22 @@ const App: React.FC = () => {
 
   // Trivia Page
   const parsedTriviaQuestions = getQuestion(TriviaQuestions, value);
-  const [question, setQuestion] = useState<Object>(parsedTriviaQuestions[0]);
+  const [question, setQuestion] = useState<any>(parsedTriviaQuestions[0]);
   const [index, setIndex] = useState<number>(1);
+  let [score, setScore] = useState<number>(0);
+
+  console.log(question.correct_answer);
+
+  const handleAnswerClick = (event: React.ChangeEvent<HTMLFormElement>): void => {
+    if (event.target.value === question.correct_answer) score += 1;
+  }
+
   const handleFormSubmit = (event: React.ChangeEvent<HTMLFormElement>): void => {
     event.preventDefault();
     if (index < parsedTriviaQuestions.length) {
       setQuestion(parsedTriviaQuestions[index]);
       setIndex(index + 1);
+      setScore(score);
     } else {
       console.log('done loading questions');
     }
@@ -39,9 +48,10 @@ const App: React.FC = () => {
   } else {
     return (
       <div className="question-module">
-        <Form
+        <Question
           singleQuestion={question}
           handleFormSubmit={handleFormSubmit}
+          handleAnswerClick={handleAnswerClick}
         />
 
         {/*
