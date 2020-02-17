@@ -24,11 +24,19 @@ const App: React.FC = () => {
   const [question, setQuestion] = useState<any>(parsedTriviaQuestions[0]);
   const [index, setIndex] = useState<number>(1);
   let [score, setScore] = useState<number>(0);
+  let isUserClick: boolean = false;
 
   console.log(question.correct_answer);
 
   const handleAnswerClick = (event: React.ChangeEvent<HTMLFormElement>): void => {
-    if (event.target.value === question.correct_answer) score += 1;
+
+    if (event.target.value === question.correct_answer && !isUserClick) {
+      isUserClick = true;
+      score += 1;
+      console.log('initial click');
+    } else {
+      console.log('already clicked');
+    }
   }
 
   const handleFormSubmit = (event: React.ChangeEvent<HTMLFormElement>): void => {
