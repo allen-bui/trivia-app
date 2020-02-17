@@ -1,5 +1,4 @@
 export function getQuestion(questions: Object[], value: number): Object[] {
-
   const result = [];
   const seen = [];
 
@@ -10,4 +9,15 @@ export function getQuestion(questions: Object[], value: number): Object[] {
     else result.push(questions[randomIndex]);
   }
   return result;
+}
+
+export function shuffle(incorrectAnswers: string[], correctAnswer: string): string[] {
+  const combinedAnswers = [...incorrectAnswers, correctAnswer];
+  for (let i = 0; i < combinedAnswers.length; ++i) {
+    const randomIndex = Math.floor(Math.random() * 4);
+    const temp = combinedAnswers[i];
+    combinedAnswers[i] = combinedAnswers[randomIndex];
+    combinedAnswers[randomIndex] = temp;
+  }
+  return combinedAnswers;
 }
