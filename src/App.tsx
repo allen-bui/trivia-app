@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Welcome from './components/welcome';
 import Question from './components/question';
+import Score from './components/score';
 import TriviaQuestions from './assets/trivia-questions';
 import { getQuestion } from './assets/helper-functions';
 import './App.scss';
@@ -29,13 +30,9 @@ const App: React.FC = () => {
   console.log(question.correct_answer);
 
   const handleAnswerClick = (event: React.ChangeEvent<HTMLFormElement>): void => {
-
     if (event.target.value === question.correct_answer && !isUserClick) {
       isUserClick = true;
       score += 1;
-      console.log('initial click');
-    } else {
-      console.log('already clicked');
     }
   }
 
@@ -46,6 +43,7 @@ const App: React.FC = () => {
       setIndex(index + 1);
       setScore(score);
     } else {
+      setScore(score);
       console.log('done loading questions');
     }
   };
@@ -61,10 +59,10 @@ const App: React.FC = () => {
           handleFormSubmit={handleFormSubmit}
           handleAnswerClick={handleAnswerClick}
         />
+        <Score score={score} totalQuestions={value}/>
 
         {/*
         <Timer />
-        <Score />
         */}
       </div>
     );
