@@ -56,6 +56,15 @@ const App: React.FC = () => {
   // Results Page
   const [isResultPage, setIsResultPage] = useState<boolean>(false);
 
+  const handlePlayAgainSubmit = (): void => {
+    setIsHome(true);
+    setIndex(1);
+    setScore(0);
+    setValue(5);
+    const parsedTriviaQuestions = getQuestion(TriviaQuestions, value);
+    setQuestion(parsedTriviaQuestions[0]);
+  }
+
   // Misc
   console.log(question.correct_answer);
 
@@ -63,7 +72,7 @@ const App: React.FC = () => {
   if (isHome) {
     return <Welcome handleChange={handleChange} handleWelcomeSubmit={handleWelcomeSubmit} />;
   } else if (isResultPage) {
-    return <Results score={score} totalQuestions={value} />;
+    return <Results score={score} totalQuestions={value} handlePlayAgainSubmit={handlePlayAgainSubmit}/>;
   } else {
     return (
       <div className="question-module">
