@@ -72,7 +72,6 @@ const App: React.FC = () => {
           handleFormSubmit={handleFormSubmit}
           handleAnswerClick={handleAnswerClick}
         />
-        {/* <Score score={score} totalQuestions={value}/> */}
         {/* <Timer timer={timer} setTimer={setTimer}/> */}
       </div>
     );
