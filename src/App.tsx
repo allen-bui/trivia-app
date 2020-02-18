@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Welcome from './components/welcome';
 import Question from './components/question';
 import Score from './components/score';
+// import Timer from './components/timer';
+import Results from './components/results';
 import TriviaQuestions from './assets/trivia-questions';
 import { getQuestion } from './assets/helper-functions';
 import './App.scss';
@@ -25,13 +27,14 @@ const App: React.FC = () => {
   const [question, setQuestion] = useState<any>(parsedTriviaQuestions[0]);
   const [index, setIndex] = useState<number>(1);
   let [score, setScore] = useState<number>(0);
-  let isUserClick: boolean = false;
 
   console.log(question.correct_answer);
 
+  // Results Page
+  const [isResultPage, setIsResultPage] = useState<boolean>(false);
+
   const handleAnswerClick = (event: React.ChangeEvent<HTMLFormElement>): void => {
-    if (event.target.value === question.correct_answer && !isUserClick) {
-      isUserClick = true;
+    if (event.target.value === question.correct_answer) {
       score += 1;
     }
   }
@@ -44,6 +47,7 @@ const App: React.FC = () => {
       setScore(score);
     } else {
       setScore(score);
+      setIsResultPage(true);
       console.log('done loading questions');
     }
   };
@@ -51,7 +55,11 @@ const App: React.FC = () => {
   // Render App
   if (isHome) {
     return <Welcome handleChange={handleChange} handleWelcomeSubmit={handleWelcomeSubmit} />;
-  } else {
+  }
+  else if (isResultPage) {
+    return <Results score={score} totalQuestions={value}/>
+  }
+  else {
     return (
       <div className="question-module">
         <Question
@@ -60,10 +68,8 @@ const App: React.FC = () => {
           handleAnswerClick={handleAnswerClick}
         />
         <Score score={score} totalQuestions={value}/>
+        {/* <Timer timer={timer} setTimer={setTimer}/> */}
 
-        {/*
-        <Timer />
-        */}
       </div>
     );
   }
