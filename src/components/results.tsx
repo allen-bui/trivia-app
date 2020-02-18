@@ -8,7 +8,7 @@ interface Results {
 const Results: React.FC<Results> = ({ score, totalQuestions }) => {
   return (
     <h1>
-      You scored a {(score / totalQuestions) * 100}%
+      You scored {(score / totalQuestions) * 100}%
     </h1>
   )
 }

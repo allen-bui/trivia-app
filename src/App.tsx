@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Welcome from './components/welcome';
 import Question from './components/question';
-import Score from './components/score';
 // import Timer from './components/timer';
 import Results from './components/results';
 import TriviaQuestions from './assets/trivia-questions';
@@ -13,10 +12,13 @@ const App: React.FC = () => {
   // Welcome Page
   const [isHome, setIsHome] = useState<boolean>(true);
   const [value, setValue] = useState<number>(5);
+
+  // Welcome Page (Event Handlers)
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const numberValue: number = Number(event.target.value);
     setValue(numberValue);
   };
+
   const handleWelcomeSubmit = (event: React.ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
     setIsHome(false);
@@ -28,16 +30,15 @@ const App: React.FC = () => {
   const [index, setIndex] = useState<number>(1);
   let [score, setScore] = useState<number>(0);
 
-  console.log(question.correct_answer);
-
-  // Results Page
-  const [isResultPage, setIsResultPage] = useState<boolean>(false);
-
+  // Trivia Page (Event Handlers)
   const handleAnswerClick = (event: React.ChangeEvent<HTMLFormElement>): void => {
     if (event.target.value === question.correct_answer) {
       score += 1;
+      alert('Correct!');
+    } else {
+      alert(`Incorrect, the correct answer is ${question.correct_answer}`);
     }
-  }
+  };
 
   const handleFormSubmit = (event: React.ChangeEvent<HTMLFormElement>): void => {
     event.preventDefault();
@@ -52,14 +53,18 @@ const App: React.FC = () => {
     }
   };
 
+  // Results Page
+  const [isResultPage, setIsResultPage] = useState<boolean>(false);
+
+  // Misc
+  console.log(question.correct_answer);
+
   // Render App
   if (isHome) {
     return <Welcome handleChange={handleChange} handleWelcomeSubmit={handleWelcomeSubmit} />;
-  }
-  else if (isResultPage) {
-    return <Results score={score} totalQuestions={value}/>
-  }
-  else {
+  } else if (isResultPage) {
+    return <Results score={score} totalQuestions={value} />;
+  } else {
     return (
       <div className="question-module">
         <Question
@@ -67,9 +72,8 @@ const App: React.FC = () => {
           handleFormSubmit={handleFormSubmit}
           handleAnswerClick={handleAnswerClick}
         />
-        <Score score={score} totalQuestions={value}/>
+        {/* <Score score={score} totalQuestions={value}/> */}
         {/* <Timer timer={timer} setTimer={setTimer}/> */}
-
       </div>
     );
   }
