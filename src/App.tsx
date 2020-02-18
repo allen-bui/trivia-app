@@ -58,11 +58,10 @@ const App: React.FC = () => {
 
   const handlePlayAgainSubmit = (): void => {
     setIsHome(true);
+    setIsResultPage(false);
     setIndex(1);
     setScore(0);
     setValue(5);
-    const parsedTriviaQuestions = getQuestion(TriviaQuestions, value);
-    setQuestion(parsedTriviaQuestions[0]);
   }
 
   // Misc
