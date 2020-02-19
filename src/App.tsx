@@ -32,14 +32,6 @@ const App: React.FC = () => {
   let [score, setScore] = useState<number>(0);
 
   // Trivia Page (Event Handlers)
-  const handleAnswerClick = (event: React.ChangeEvent<HTMLFormElement>): void => {
-    if (event.target.value === question.correct_answer) {
-      score += 1;
-      // alert('Correct!');
-    } else {
-      // alert(`Incorrect, the correct answer is "${question.correct_answer}"`);
-    }
-  };
 
   const handleFormSubmit = (event: React.ChangeEvent<HTMLFormElement>): void => {
     event.preventDefault();
@@ -83,8 +75,10 @@ const App: React.FC = () => {
         <Question
           singleQuestion={question['question']}
           handleFormSubmit={handleFormSubmit}
-          handleAnswerClick={handleAnswerClick}
           answers={answers}
+          correctAnswer={question['correct_answer']}
+          setScore={setScore}
+          score={score}
         />
         {/* <Timer timer={timer} setTimer={setTimer}/> */}
       </div>

@@ -1,22 +1,36 @@
 import React from 'react';
+import Answer from './answer';
 
 interface Question {
   singleQuestion: any;
   handleFormSubmit: any;
-  handleAnswerClick: any;
   answers: any;
+  correctAnswer: string;
+  setScore: any;
+  score: number;
 }
 
-const Question: React.FC<Question> = ({ singleQuestion, handleFormSubmit, handleAnswerClick, answers }) => {
-
+const Question: React.FC<Question> = ({
+  singleQuestion,
+  handleFormSubmit,
+  answers,
+  correctAnswer,
+  setScore,
+  score,
+}) => {
   return (
-    <form onSubmit={handleFormSubmit} onClick={handleAnswerClick}>
+    <form onSubmit={handleFormSubmit}>
       <h1>{singleQuestion}</h1>
-      <option value={answers[0]}>{answers[0]}</option>
-      <option value={answers[1]}>{answers[1]}</option>
-      <option value={answers[2]}>{answers[2]}</option>
-      <option value={answers[3]}>{answers[3]}</option>
-      <input type="submit"/>
+      {answers.map((answer: string, index: number) => (
+        <Answer
+          answer={answer}
+          key={index}
+          correctAnswer={correctAnswer}
+          setScore={setScore}
+          score={score}
+        />
+      ))}
+      <input type="submit" />
     </form>
   );
 };
