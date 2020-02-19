@@ -4,7 +4,7 @@ import Question from './components/question';
 // import Timer from './components/timer';
 import Results from './components/results';
 import TriviaQuestions from './assets/trivia-questions';
-import { getQuestion } from './assets/helper-functions';
+import { getQuestion, shuffle } from './assets/helper-functions';
 import './App.scss';
 
 const App: React.FC = () => {
@@ -27,6 +27,7 @@ const App: React.FC = () => {
   // Trivia Page
   const parsedTriviaQuestions = getQuestion(TriviaQuestions, value);
   const [question, setQuestion] = useState<any>(parsedTriviaQuestions[0]);
+  const [answers, setAnswers] = useState<string[]>(shuffle(question['incorrect_answers'], question['correct_answer']));
   const [index, setIndex] = useState<number>(1);
   let [score, setScore] = useState<number>(0);
 
@@ -34,18 +35,22 @@ const App: React.FC = () => {
   const handleAnswerClick = (event: React.ChangeEvent<HTMLFormElement>): void => {
     if (event.target.value === question.correct_answer) {
       score += 1;
-      alert('Correct!');
+      // alert('Correct!');
     } else {
-      alert(`Incorrect, the correct answer is ${question.correct_answer}`);
+      // alert(`Incorrect, the correct answer is "${question.correct_answer}"`);
     }
   };
 
   const handleFormSubmit = (event: React.ChangeEvent<HTMLFormElement>): void => {
     event.preventDefault();
+
+    const currentQuestion: any = parsedTriviaQuestions[index];
+
     if (index < parsedTriviaQuestions.length) {
       setQuestion(parsedTriviaQuestions[index]);
       setIndex(index + 1);
       setScore(score);
+      setAnswers(shuffle(currentQuestion['incorrect_answers'], currentQuestion['correct_answer']));
     } else {
       setScore(score);
       setIsResultPage(true);
@@ -76,9 +81,10 @@ const App: React.FC = () => {
     return (
       <div className="question-module">
         <Question
-          singleQuestion={question}
+          singleQuestion={question['question']}
           handleFormSubmit={handleFormSubmit}
           handleAnswerClick={handleAnswerClick}
+          answers={answers}
         />
         {/* <Timer timer={timer} setTimer={setTimer}/> */}
       </div>
