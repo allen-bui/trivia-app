@@ -6,21 +6,31 @@ interface Answer {
   correctAnswer: string;
   setScore: any;
   score: number;
+  isFirstAnswer: boolean;
+  setIsFirstAnswer: any;
 }
 
-const Answer: React.FC<Answer> = ({ answer, correctAnswer, setScore, score }) => {
+const Answer: React.FC<Answer> = ({
+  answer,
+  correctAnswer,
+  setScore,
+  score,
+  isFirstAnswer,
+  setIsFirstAnswer,
+}) => {
   const [style, setStyle] = useState<Object>({ backgroundColor: 'none' });
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const handleAnswerClick = (): void => {
     if (!isClicked) {
       if (answer === correctAnswer) {
+        if (isFirstAnswer) setScore(score + 1);
         setStyle({ backgroundColor: 'green' });
-        setScore(score + 1);
       } else {
         setStyle({ backgroundColor: 'red' });
       }
     }
     setIsClicked(true);
+    setIsFirstAnswer(false);
   };
   return (
     <option style={style} value={answer} onClick={handleAnswerClick}>

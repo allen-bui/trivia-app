@@ -8,6 +8,8 @@ interface Question {
   correctAnswer: string;
   setScore: any;
   score: number;
+  isFirstAnswer: boolean;
+  setIsFirstAnswer: any;
 }
 
 const Question: React.FC<Question> = ({
@@ -17,7 +19,10 @@ const Question: React.FC<Question> = ({
   correctAnswer,
   setScore,
   score,
+  isFirstAnswer,
+  setIsFirstAnswer,
 }) => {
+
   return (
     <form onSubmit={handleFormSubmit}>
       <h1>{singleQuestion}</h1>
@@ -28,6 +33,8 @@ const Question: React.FC<Question> = ({
           correctAnswer={correctAnswer}
           setScore={setScore}
           score={score}
+          setIsFirstAnswer={setIsFirstAnswer}
+          isFirstAnswer={isFirstAnswer}
         />
       ))}
       <input type="submit" />
