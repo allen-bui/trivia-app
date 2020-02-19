@@ -29,20 +29,19 @@ const App: React.FC = () => {
   const [question, setQuestion] = useState<any>(parsedTriviaQuestions[0]);
   const [answers, setAnswers] = useState<string[]>(shuffle(question['incorrect_answers'], question['correct_answer']));
   const [index, setIndex] = useState<number>(1);
+  const [key, setKey] = useState<number>(0);
   let [score, setScore] = useState<number>(0);
 
   // Trivia Page (Event Handlers)
-
   const handleFormSubmit = (event: React.ChangeEvent<HTMLFormElement>): void => {
     event.preventDefault();
-
     const currentQuestion: any = parsedTriviaQuestions[index];
-
     if (index < parsedTriviaQuestions.length) {
       setQuestion(parsedTriviaQuestions[index]);
       setIndex(index + 1);
       setScore(score);
       setAnswers(shuffle(currentQuestion['incorrect_answers'], currentQuestion['correct_answer']));
+      setKey(key + 1);
     } else {
       setScore(score);
       setIsResultPage(true);
@@ -79,6 +78,7 @@ const App: React.FC = () => {
           correctAnswer={question['correct_answer']}
           setScore={setScore}
           score={score}
+          key={key}
         />
         {/* <Timer timer={timer} setTimer={setTimer}/> */}
       </div>

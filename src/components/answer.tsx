@@ -8,10 +8,9 @@ interface Answer {
   score: number;
 }
 
-const Answer: React.FC<Answer> = ({ answer, correctAnswer, setScore, score }) => {
+const Answer: React.FC<Answer> = ({ answer, correctAnswer, setScore, score}) => {
 
   const [style, setStyle] = useState<Object>({ backgroundColor: 'none' });
-
   const handleAnswerClick = (): void => {
     if (answer === correctAnswer) {
       setStyle({ backgroundColor: 'green' });
@@ -20,7 +19,6 @@ const Answer: React.FC<Answer> = ({ answer, correctAnswer, setScore, score }) =>
       setStyle({ backgroundColor: 'red' });
     }
   };
-
   return (
     <option style={style} value={answer} onClick={handleAnswerClick}>
       {answer}
