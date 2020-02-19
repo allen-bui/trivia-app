@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 
 interface Answer {
   answer: string;
-  key: number;
   correctAnswer: string;
-  setScore: any;
+  key: number;
   score: number;
   isFirstAnswer: boolean;
+  setScore: any;
   setIsFirstAnswer: any;
 }
 
 const Answer: React.FC<Answer> = ({
   answer,
   correctAnswer,
-  setScore,
   score,
+  setScore,
   isFirstAnswer,
   setIsFirstAnswer,
 }) => {

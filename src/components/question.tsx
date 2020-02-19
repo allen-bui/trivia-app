@@ -2,27 +2,26 @@ import React from 'react';
 import Answer from './answer';
 
 interface Question {
-  singleQuestion: any;
-  handleFormSubmit: any;
-  answers: any;
   correctAnswer: string;
-  setScore: any;
   score: number;
   isFirstAnswer: boolean;
+  answers: string[];
+  singleQuestion: any;
+  handleFormSubmit: any;
+  setScore: any;
   setIsFirstAnswer: any;
 }
 
 const Question: React.FC<Question> = ({
-  singleQuestion,
-  handleFormSubmit,
-  answers,
   correctAnswer,
-  setScore,
   score,
   isFirstAnswer,
+  answers,
+  singleQuestion,
+  handleFormSubmit,
+  setScore,
   setIsFirstAnswer,
 }) => {
-
   return (
     <form onSubmit={handleFormSubmit}>
       <h1>{singleQuestion}</h1>

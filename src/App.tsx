@@ -27,11 +27,11 @@ const App: React.FC = () => {
   // Trivia Page
   const parsedTriviaQuestions = getQuestion(TriviaQuestions, value);
   const [question, setQuestion] = useState<any>(parsedTriviaQuestions[0]);
-  const [answers, setAnswers] = useState<string[]>(shuffle(question['incorrect_answers'], question['correct_answer']));
   const [index, setIndex] = useState<number>(1);
   const [key, setKey] = useState<number>(0);
   const [isFirstAnswer, setIsFirstAnswer] = useState<boolean>(true);
-  let [score, setScore] = useState<number>(0);
+  const [score, setScore] = useState<number>(0);
+  const [answers, setAnswers] = useState<string[]>(shuffle(question['incorrect_answers'], question['correct_answer']));
 
   // Trivia Page (Event Handlers)
   const handleFormSubmit = (event: React.ChangeEvent<HTMLFormElement>): void => {
@@ -41,19 +41,17 @@ const App: React.FC = () => {
       setQuestion(parsedTriviaQuestions[index]);
       setIndex(index + 1);
       setScore(score);
-      setAnswers(shuffle(currentQuestion['incorrect_answers'], currentQuestion['correct_answer']));
       setIsFirstAnswer(true);
       setKey(key + 1);
+      setAnswers(shuffle(currentQuestion['incorrect_answers'], currentQuestion['correct_answer']));
     } else {
       setScore(score);
       setIsResultPage(true);
-      console.log('done loading questions');
     }
   };
 
   // Results Page
   const [isResultPage, setIsResultPage] = useState<boolean>(false);
-
   const handlePlayAgainSubmit = (): void => {
     setIsHome(true);
     setIsResultPage(false);
@@ -61,9 +59,6 @@ const App: React.FC = () => {
     setScore(0);
     setValue(5);
   }
-
-  // Misc
-  console.log(question.correct_answer);
 
   // Render App
   if (isHome) {
