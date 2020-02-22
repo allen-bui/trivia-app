@@ -4,6 +4,7 @@ import Answer from './answer';
 interface Question {
   correctAnswer: string;
   score: number;
+  questionNumber: number;
   isFirstAnswer: boolean;
   answers: string[];
   singleQuestion: any;
@@ -15,6 +16,7 @@ interface Question {
 const Question: React.FC<Question> = ({
   correctAnswer,
   score,
+  questionNumber,
   isFirstAnswer,
   answers,
   singleQuestion,
@@ -23,21 +25,23 @@ const Question: React.FC<Question> = ({
   setIsFirstAnswer,
 }) => {
   return (
-    <form onSubmit={handleFormSubmit}>
-      <h1>{singleQuestion}</h1>
-      {answers.map((answer: string, index: number) => (
-        <Answer
-          answer={answer}
-          key={index}
-          correctAnswer={correctAnswer}
-          setScore={setScore}
-          score={score}
-          setIsFirstAnswer={setIsFirstAnswer}
-          isFirstAnswer={isFirstAnswer}
-        />
-      ))}
-      <input type="submit" />
-    </form>
+    <div className="question-container">
+      <form onSubmit={handleFormSubmit}>
+        <h1>Question {questionNumber}: {singleQuestion}</h1>
+        {answers.map((answer: string, index: number) => (
+          <Answer
+            answer={answer}
+            key={index}
+            correctAnswer={correctAnswer}
+            setScore={setScore}
+            score={score}
+            setIsFirstAnswer={setIsFirstAnswer}
+            isFirstAnswer={isFirstAnswer}
+          />
+        ))}
+        <input type="submit" />
+      </form>
+    </div>
   );
 };
 

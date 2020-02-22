@@ -10,7 +10,7 @@ import './App.scss';
 const App: React.FC = () => {
 
   // Welcome Page
-  const [isHome, setIsHome] = useState<boolean>(true);
+  const [isHome, setIsHome] = useState<boolean>(false);
   const [value, setValue] = useState<number>(5);
 
   // Welcome Page (Event Handlers)
@@ -67,7 +67,7 @@ const App: React.FC = () => {
     return <Results score={score} totalQuestions={value} handlePlayAgainSubmit={handlePlayAgainSubmit}/>;
   } else {
     return (
-      <div className="question-module">
+      <div>
         <Question
           singleQuestion={question['question']}
           handleFormSubmit={handleFormSubmit}
@@ -78,6 +78,7 @@ const App: React.FC = () => {
           key={key}
           isFirstAnswer={isFirstAnswer}
           setIsFirstAnswer={setIsFirstAnswer}
+          questionNumber={index}
         />
         {/* <Timer timer={timer} setTimer={setTimer}/> */}
       </div>
