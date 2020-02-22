@@ -8,17 +8,19 @@ interface Welcome {
 
 const Welcome: React.FC<Welcome> = ({ handleWelcomeSubmit, handleChange }) => {
   return (
-    <div className="welcome">
-      <h1>Welcome to Trivia!</h1>
-      <h4>Select the number of questions and hit go to begin</h4>
-      <form onSubmit={handleWelcomeSubmit}>
-        <select name="numberOfQuestions" onChange={handleChange}>
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="15">15</option>
-        </select>
-        <input type="submit" value="Go" />
-      </form>
+    <div className="welcome-container">
+      <div className="title">TRIVIA</div>
+      <div className="selection-container">
+        <div className="selection-text">Select the number of questions and hit go</div>
+        <form onSubmit={handleWelcomeSubmit}>
+          <select name="numberOfQuestions" onChange={handleChange}>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+          </select>
+          <input type="submit" value="Go" />
+        </form>
+      </div>
     </div>
   );
 };
