@@ -11,7 +11,7 @@ const Welcome: React.FC<Welcome> = ({ handleWelcomeSubmit, handleChange }) => {
     <div className="welcome-container">
       <div className="title">TRIVIA</div>
       <div className="selection-container">
-        <div className="selection-text">Select the number of questions and hit go</div>
+        <div className="selection-text">SELECT # OF QUESTIONS AND HIT GO</div>
         <form onSubmit={handleWelcomeSubmit}>
           <select name="numberOfQuestions" onChange={handleChange}>
             <option value="5">5</option>
