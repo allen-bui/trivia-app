@@ -1,6 +1,10 @@
+$border-pixel: 1px;
+$border-style: solid;
+$border-color: #ccc;
+
 @media only screen and (min-width: 300px) {
   .question-container {
-    border: 1px solid #ccc;
+    border: $border-pixel $border-style $border-color;
     width: 350px;
     height: 50vh;
 
@@ -8,13 +12,15 @@
       font-size: 18px;
       font-weight: 100;
     }
-
+    form {
+      margin: 5%;
+    }
   }
 }
 
 @media only screen and (min-width: 1000px) {
   .question-container {
-    border: 1px solid #ccc;
+    border: $border-pixel $border-style $border-color;
     width: 1000px;
     height: 50vh;
     display: flex;
