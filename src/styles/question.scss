@@ -1,0 +1,32 @@
+@media only screen and (min-width: 300px) {
+  .question-container {
+    border: 1px solid #ccc;
+    width: 350px;
+    height: 50vh;
+
+    .question-title {
+      font-size: 18px;
+      font-weight: 100;
+    }
+
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .question-container {
+    border: 1px solid #ccc;
+    width: 1000px;
+    height: 50vh;
+    display: flex;
+    justify-content: left;
+
+    .question-title {
+      font-size: 24px;
+      font-weight: 100;
+    }
+
+    form {
+      margin: 5%;
+    }
+  }
+}

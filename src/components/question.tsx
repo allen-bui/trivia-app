@@ -1,5 +1,6 @@
 import React from 'react';
 import Answer from './answer';
+import './../styles/question.scss';
 
 interface Question {
   correctAnswer: string;
@@ -27,7 +28,11 @@ const Question: React.FC<Question> = ({
   return (
     <div className="question-container">
       <form onSubmit={handleFormSubmit}>
-        <h1>Question {questionNumber}: {singleQuestion}</h1>
+        <div className="question-title">
+          <strong>Question {questionNumber}: </strong>
+          {singleQuestion}
+        </div>
+        <br />
         {answers.map((answer: string, index: number) => (
           <Answer
             answer={answer}

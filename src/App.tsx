@@ -8,7 +8,6 @@ import { getQuestion, shuffle } from './assets/helper-functions';
 import './App.scss';
 
 const App: React.FC = () => {
-
   // Welcome Page
   const [isHome, setIsHome] = useState<boolean>(false);
   const [value, setValue] = useState<number>(5);
@@ -31,7 +30,9 @@ const App: React.FC = () => {
   const [key, setKey] = useState<number>(0);
   const [isFirstAnswer, setIsFirstAnswer] = useState<boolean>(true);
   const [score, setScore] = useState<number>(0);
-  const [answers, setAnswers] = useState<string[]>(shuffle(question['incorrect_answers'], question['correct_answer']));
+  const [answers, setAnswers] = useState<string[]>(
+    shuffle(question['incorrect_answers'], question['correct_answer']),
+  );
 
   // Trivia Page (Event Handlers)
   const handleFormSubmit = (event: React.ChangeEvent<HTMLFormElement>): void => {
@@ -58,30 +59,29 @@ const App: React.FC = () => {
     setIndex(1);
     setScore(0);
     setValue(5);
-  }
+  };
 
   // Render App
   if (isHome) {
     return <Welcome handleChange={handleChange} handleWelcomeSubmit={handleWelcomeSubmit} />;
   } else if (isResultPage) {
-    return <Results score={score} totalQuestions={value} handlePlayAgainSubmit={handlePlayAgainSubmit}/>;
+    return (
+      <Results score={score} totalQuestions={value} handlePlayAgainSubmit={handlePlayAgainSubmit} />
+    );
   } else {
     return (
-      <div>
-        <Question
-          singleQuestion={question['question']}
-          handleFormSubmit={handleFormSubmit}
-          answers={answers}
-          correctAnswer={question['correct_answer']}
-          setScore={setScore}
-          score={score}
-          key={key}
-          isFirstAnswer={isFirstAnswer}
-          setIsFirstAnswer={setIsFirstAnswer}
-          questionNumber={index}
-        />
-        {/* <Timer timer={timer} setTimer={setTimer}/> */}
-      </div>
+      <Question
+        singleQuestion={question['question']}
+        handleFormSubmit={handleFormSubmit}
+        answers={answers}
+        correctAnswer={question['correct_answer']}
+        setScore={setScore}
+        score={score}
+        key={key}
+        isFirstAnswer={isFirstAnswer}
+        setIsFirstAnswer={setIsFirstAnswer}
+        questionNumber={index}
+      />
     );
   }
 };
