@@ -6,6 +6,7 @@ interface Question {
   correctAnswer: string;
   score: number;
   questionNumber: number;
+  numberOfQuestions: number;
   isFirstAnswer: boolean;
   answers: string[];
   singleQuestion: any;
@@ -18,6 +19,7 @@ const Question: React.FC<Question> = ({
   correctAnswer,
   score,
   questionNumber,
+  numberOfQuestions,
   isFirstAnswer,
   answers,
   singleQuestion,
@@ -43,7 +45,11 @@ const Question: React.FC<Question> = ({
             isFirstAnswer={isFirstAnswer}
           />
         ))}
-        <input type="submit" />
+        {questionNumber === numberOfQuestions ? (
+          <input type="submit" value="Submit" />
+        ) : (
+          <input type="submit" value="Next" />
+        )}
       </form>
     </div>
   );

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Welcome from './components/welcome';
 import Question from './components/question';
-// import Timer from './components/timer';
 import Results from './components/results';
 import TriviaQuestions from './assets/trivia-questions';
 import { getQuestion, shuffle } from './assets/helper-functions';
@@ -9,7 +8,7 @@ import './App.scss';
 
 const App: React.FC = () => {
   // Welcome Page
-  const [isHome, setIsHome] = useState<boolean>(true);
+  const [isHome, setIsHome] = useState<boolean>(false);
   const [value, setValue] = useState<number>(5);
 
   // Welcome Page (Event Handlers)
@@ -81,6 +80,7 @@ const App: React.FC = () => {
         isFirstAnswer={isFirstAnswer}
         setIsFirstAnswer={setIsFirstAnswer}
         questionNumber={index}
+        numberOfQuestions={value}
       />
     );
   }

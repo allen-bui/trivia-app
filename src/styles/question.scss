@@ -23,7 +23,7 @@ $border-color: #ccc;
 @media only screen and (min-width: 1000px) {
   .question-container {
     border: $border-pixel $border-style $border-color;
-    width: 1000px;
+    width: 1025px;
     height: 50vh;
     display: flex;
     justify-content: left;
