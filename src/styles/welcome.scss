@@ -1,37 +1,153 @@
-.welcome-container {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+$animation-width: 500px;
+$animation-height: 500px;
+$mobile-animation-width: 350px;
+$mobile-animation-height: 350px;
 
-  .title {
-    font-size: 100px;
-    letter-spacing: 24px;
-  }
+@media only screen and (min-width: 300px) {
 
-  .selection-container {
-    display: grid;
-    grid-template-columns: repeat(1fr, 2);
-    justify-content: center;
+  .welcome-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 
-    .selection-text {
-      grid-column-start: 1;
-      grid-column-end: 2;
-      letter-spacing: 2px;
-      padding: 10px;
-      font-size: 14px;
+    .rotating-box-vertical {
+      height: $mobile-animation-height;
+      width: $mobile-animation-width;
+      border: 2px solid #0CB1C4;
+      position: absolute;
+      animation-name: spin;
+      animation-duration: 25000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      z-index: -1;
     }
 
-    form {
-      grid-column-start: 2;
-      grid-column-end: 3;
+    .rotating-box-horizontal {
+      height: $mobile-animation-height;
+      width: $mobile-animation-width;
+      border: 2px solid pink;
+      position: absolute;
+      animation-name: reverse-spin;
+      animation-duration: 25000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      z-index: -1;
+    }
 
-      input {
-        margin: 10px;
+    .title {
+      font-size: 50px;
+      letter-spacing: 18px;
+    }
+
+    .selection-container {
+      display: grid;
+      grid-template-columns: repeat(1fr, 2);
+      justify-content: center;
+      align-items: center;
+
+      .selection-text {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        letter-spacing: 2px;
+        padding: 10px;
+        font-size: 10px;
+      }
+
+      form {
+        grid-column-start: 2;
+        grid-column-end: 3;
+
+        input {
+          margin: 10px;
+        }
       }
     }
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+
+  .welcome-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .rotating-box-vertical {
+      height: $animation-height;
+      width: $animation-width;
+      border: 2px solid #0CB1C4;
+      position: absolute;
+      animation-name: spin;
+      animation-duration: 25000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      z-index: -1;
+    }
+
+    .rotating-box-horizontal {
+      height: $animation-height;
+      width: $animation-width;
+      border: 2px solid pink;
+      position: absolute;
+      animation-name: reverse-spin;
+      animation-duration: 25000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      z-index: -1;
+    }
+
+    .title {
+      font-size: 100px;
+      letter-spacing: 24px;
+    }
+
+    .selection-container {
+      display: grid;
+      grid-template-columns: repeat(1fr, 2);
+      justify-content: center;
+      align-items: center;
+
+      .selection-text {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        letter-spacing: 2px;
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      form {
+        grid-column-start: 2;
+        grid-column-end: 3;
+
+        input {
+          margin: 10px;
+        }
+      }
+    }
+  }
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes reverse-spin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }

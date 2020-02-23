@@ -9,6 +9,8 @@ interface Welcome {
 const Welcome: React.FC<Welcome> = ({ handleWelcomeSubmit, handleChange }) => {
   return (
     <div className="welcome-container">
+      <div className="rotating-box-vertical" ></div>
+      <div className="rotating-box-horizontal" ></div>
       <div className="title">TRIVIA</div>
       <div className="selection-container">
         <div className="selection-text">SELECT # OF QUESTIONS AND HIT GO</div>

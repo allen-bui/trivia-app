@@ -9,7 +9,7 @@ import './App.scss';
 
 const App: React.FC = () => {
   // Welcome Page
-  const [isHome, setIsHome] = useState<boolean>(false);
+  const [isHome, setIsHome] = useState<boolean>(true);
   const [value, setValue] = useState<number>(5);
 
   // Welcome Page (Event Handlers)
