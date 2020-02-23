@@ -1,0 +1,28 @@
+@media only screen and (min-width: 300px) {
+  option {
+    font-size: 12px;
+    border: 1px solid #eee;
+    margin: 5% 0%;
+    width: 300px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  option {
+    font-size: 16px;
+    border: 1px solid #eee;
+    margin: 2.5% 0%;
+    width: 900px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px #eee;
+  }
+}

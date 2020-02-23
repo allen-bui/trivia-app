@@ -32,7 +32,6 @@ const Question: React.FC<Question> = ({
           <strong>Question {questionNumber}: </strong>
           {singleQuestion}
         </div>
-        <br />
         {answers.map((answer: string, index: number) => (
           <Answer
             answer={answer}
