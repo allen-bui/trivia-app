@@ -28,7 +28,7 @@ $mobile-animation-height: 350px;
     .rotating-box-horizontal {
       height: $mobile-animation-height;
       width: $mobile-animation-width;
-      border: 2px solid pink;
+      border: 2px solid rgb(221, 70, 121);
       position: absolute;
       animation-name: reverse-spin;
       animation-duration: 25000ms;
@@ -93,7 +93,7 @@ $mobile-animation-height: 350px;
     .rotating-box-horizontal {
       height: $animation-height;
       width: $animation-width;
-      border: 2px solid pink;
+      border: 2px solid rgb(221, 70, 121);
       position: absolute;
       animation-name: reverse-spin;
       animation-duration: 25000ms;
@@ -139,7 +139,7 @@ $mobile-animation-height: 350px;
     transform: rotate(45deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(405deg);
   }
 }
 
