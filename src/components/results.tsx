@@ -10,11 +10,13 @@ interface Results {
 }
 
 const Results: React.FC<Results> = ({ score, totalQuestions, handlePlayAgainSubmit }) => {
-
   // Results
   const { width, height } = useWindowSize();
   const result: number = Math.floor((score / totalQuestions) * 100);
   const emoji: string = result >= 70 ? '😀' : '😵';
+  const resultsMessage = result >= 70
+    ? <div className="results-message">Great Job! You definitely know your trivia knowledge!</div>
+    : <div className="results-message">There there buddy... you'll do better the next time around!</div>
 
   // Highlights & Event Handlers
   const [isHighlight, setIsHighlight] = useState<boolean>(false);
@@ -28,10 +30,11 @@ const Results: React.FC<Results> = ({ score, totalQuestions, handlePlayAgainSubm
 
   return (
     <div className="results-container">
-      {/* <Confetti width={width} height={height} numberOfPieces={500} recycle={false} /> */}
+      <Confetti width={width} height={height} numberOfPieces={500} recycle={false} />
       <div className="results-title">
         You scored {result}%. {emoji}
       </div>
+      {resultsMessage}
       <button
         style={style}
         onMouseEnter={handleHover}
