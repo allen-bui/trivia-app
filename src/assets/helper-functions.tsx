@@ -21,3 +21,17 @@ export function shuffle(incorrectAnswers: string[], correctAnswer: string): stri
   }
   return combinedAnswers;
 }
+
+export function removeDuplicateQuestions(questions: any): any {
+  const set = new Set();
+  const uniqueQuestions:any = [];
+  questions.forEach((element: any) => (element.key = element.incorrect_answers.join('')));
+  questions.forEach((element: any) => set.add(element.key));
+  questions.forEach((element: any) => {
+    if (set.has(element.key)) {
+      uniqueQuestions.push(element);
+      set.delete(element.key);
+    }
+  });
+  return uniqueQuestions;
+}
