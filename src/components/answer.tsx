@@ -34,9 +34,9 @@ const Answer: React.FC<Answer> = ({
     setIsFirstAnswer(false);
   };
   return (
-    <option style={style} value={answer} onClick={handleAnswerClick}>
+    <div className="single-answer" style={style} onClick={handleAnswerClick}>
       {answer}
-    </option>
+    </div>
   );
 };
 

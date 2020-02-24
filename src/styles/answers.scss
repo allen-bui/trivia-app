@@ -1,5 +1,5 @@
 @media only screen and (min-width: 300px) {
-  option {
+  .single-answer {
     padding-left: 10px;
     font-size: 12px;
     border: 1px solid #eee;
@@ -15,7 +15,7 @@
 }
 
 @media only screen and (min-width: 1000px) {
-  option {
+  .single-answer {
     font-size: 16px;
     border: 1px solid #eee;
     margin: 2.5% 0%;
