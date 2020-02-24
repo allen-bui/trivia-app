@@ -29,7 +29,7 @@ $border-color: #ccc;
   .question-container {
     border: $border-pixel $border-style $border-color;
     width: 1025px;
-    height: 50vh;
+    height: 50%;
     display: flex;
     justify-content: left;
     box-shadow: 2px 2px 2px 2px #eee;
@@ -41,6 +41,7 @@ $border-color: #ccc;
 
     form {
       margin: 5%;
+      position: relative;
     }
   }
 }
