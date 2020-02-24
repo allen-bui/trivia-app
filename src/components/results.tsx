@@ -33,6 +33,7 @@ const Results: React.FC<Results> = ({ score, totalQuestions, handlePlayAgainSubm
       <Confetti width={width} height={height} numberOfPieces={500} recycle={false} />
       <div className="results-title">
         You scored {result}%. {emoji}
+        <div className="score-results">You got {score} / {totalQuestions} correct.</div>
       </div>
       {resultsMessage}
       <button

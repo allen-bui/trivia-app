@@ -16,6 +16,11 @@ $border-color: #ccc;
     .results-title {
       font-size: 32px;
       font-weight: 100;
+
+      .score-results {
+        font-size: 14px;
+        text-align: center;
+      }
     }
 
     .results-message {
@@ -42,6 +47,11 @@ $border-color: #ccc;
     .results-title {
       font-size: 80px;
       font-weight: 100;
+
+      .score-results {
+        font-size: 18px;
+        text-align: center;
+      }
     }
 
     .results-message {
