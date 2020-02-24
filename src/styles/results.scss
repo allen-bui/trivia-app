@@ -3,44 +3,48 @@ $border-style: solid;
 $border-color: #ccc;
 
 @media only screen and (min-width: 300px) {
-  .question-container {
+  .results-container {
     border: $border-pixel $border-style $border-color;
     width: 350px;
     height: 50vh;
     box-shadow: 2px 2px 2px 2px #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 
-    .question-title {
-      font-size: 18px;
+    .results-title {
+      font-size: 36px;
       font-weight: 100;
     }
 
-    form {
-      margin: 5%;
-      input {
-        width: 100px;
-        height: 30px;
-        cursor: pointer;
-      }
+    button {
+      font-size: 12px;
+      font-weight: 100;
+      width: 150px;
+      height: 40px;
     }
   }
 }
 
 @media only screen and (min-width: 1000px) {
-  .question-container {
+  .results-container {
     border: $border-pixel $border-style $border-color;
     width: 1025px;
     height: 50vh;
-    display: flex;
-    justify-content: left;
     box-shadow: 2px 2px 2px 2px #eee;
 
-    .question-title {
-      font-size: 24px;
+    .results-title {
+      font-size: 80px;
       font-weight: 100;
     }
 
-    form {
-      margin: 5%;
+    button {
+      font-size: 24px;
+      font-weight: 100;
+      width: 250px;
+      height: 50px;
+      cursor: pointer;
     }
   }
 }

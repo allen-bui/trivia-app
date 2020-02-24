@@ -25,9 +25,9 @@ const Answer: React.FC<Answer> = ({
     if (!isClicked) {
       if (answer === correctAnswer) {
         if (isFirstAnswer) setScore(score + 1);
-        setStyle({ backgroundColor: 'green' });
+        setStyle({ backgroundColor: '#00ee00' });
       } else {
-        setStyle({ backgroundColor: 'red' });
+        setStyle({ backgroundColor: '#FF6347' });
       }
     }
     setIsClicked(true);

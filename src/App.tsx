@@ -51,7 +51,7 @@ const App: React.FC = () => {
   };
 
   // Results Page
-  const [isResultPage, setIsResultPage] = useState<boolean>(false);
+  const [isResultPage, setIsResultPage] = useState<boolean>(true);
   const handlePlayAgainSubmit = (): void => {
     setIsHome(true);
     setIsResultPage(false);
