@@ -34,17 +34,19 @@ const Question: React.FC<Question> = ({
           <strong>Question {questionNumber}: </strong>
           {singleQuestion}
         </div>
-        {answers.map((answer: string, index: number) => (
-          <Answer
-            answer={answer}
-            key={index}
-            correctAnswer={correctAnswer}
-            setScore={setScore}
-            score={score}
-            setIsFirstAnswer={setIsFirstAnswer}
-            isFirstAnswer={isFirstAnswer}
-          />
-        ))}
+        <optgroup>
+          {answers.map((answer: string, index: number) => (
+            <Answer
+              answer={answer}
+              key={index}
+              correctAnswer={correctAnswer}
+              setScore={setScore}
+              score={score}
+              setIsFirstAnswer={setIsFirstAnswer}
+              isFirstAnswer={isFirstAnswer}
+            />
+          ))}
+        </optgroup>
         {questionNumber === numberOfQuestions ? (
           <input type="submit" value="Submit" />
         ) : (
