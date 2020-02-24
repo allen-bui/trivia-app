@@ -53,11 +53,14 @@ const App: React.FC = () => {
   // Results Page
   const [isResultPage, setIsResultPage] = useState<boolean>(false);
   const handlePlayAgainSubmit = (): void => {
+    console.log('App ', score);
     setIsHome(true);
-    setIsResultPage(false);
     setIndex(1);
     setScore(0);
     setValue(5);
+    setKey(0);
+    setIsFirstAnswer(true);
+    setIsResultPage(false);
   };
 
   // Render App
