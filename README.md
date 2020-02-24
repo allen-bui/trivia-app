@@ -31,3 +31,5 @@ First, select the number of questions you'd like to go through, then hit "Go".
 * [React Hooks](https://reactjs.org/docs/hooks-intro.html)
 * [React Confetti](https://www.npmjs.com/package/react-confetti)
 * [SASS](https://sass-lang.com/)
+
+This project was bootstrapped with Create-React-App.
