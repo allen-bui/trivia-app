@@ -10,7 +10,7 @@ First, select the number of questions you'd like to go through, then hit "Go".
 
 ### Rules
 
-* Your score is calculated based on your **first** click. If you get the answer wrong, you may keep trying until you get the correct one (this is designed to help you learn new facts), then hit **next**.
+* Your score is calculated based on your **first** click, where one point is awarded if the correct answer is chosen and zero for everything else. If you get the answer wrong, you are encouraged to keep guessing until you get the correct one (this is designed to help you learn new facts) before hitting **"next"**.
 * Have fun and keep learning!
 
 ### Application Images
